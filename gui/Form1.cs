@@ -209,12 +209,12 @@ namespace gui
 
         private void DeleteTextValue()
         {
-            if (this.UserInputText.Text.Length < this.UserInputText.SelectionStart + 1)
+            if (this.UserInputText.SelectionStart == 0 || (this.UserInputText.SelectionStart > this.UserInputText.Text.Length))
                 return;
-
+            
             var selectionStart = this.UserInputText.SelectionStart;
-                        
-            this.UserInputText.Text = this.UserInputText.Text.Remove(this.UserInputText.SelectionStart, 1);
+
+            this.UserInputText.Text = this.UserInputText.Text.Remove(this.UserInputText.SelectionStart - 1, 1);
 
             this.UserInputText.SelectionStart = selectionStart;
 
