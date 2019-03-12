@@ -12,119 +12,98 @@ namespace gui
 {
     public partial class Form1 : Form
     {
-        /// <summary>
-        /// A basic calculator
-        /// </summary>
-        /// 
-
-        #region Constructor
         public Form1() => InitializeComponent();
-        #endregion
-
-        #region Clearing methods
-        private void CEButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hi");
-        }
-
-        private void CButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DelButton_Click(object sender, EventArgs e)
-        {
-
-        }
-        #endregion
-
+        
         #region Operator methods
-        private void DivideButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MultiplyButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MinusButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PlusButton_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void EqualsButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void PointButton_Click(object sender, EventArgs e)
-        {
-
+            CalculateEquation();
         }
 
         private void ChangeSignButton_Click(object sender, EventArgs e)
         {
-
+            ChangeSign();
         }
+        
         #endregion
-
-        #region Number methods
-        private void ZeroButton_Click(object sender, EventArgs e)
+        
+        private void CalculateEquation()
         {
+            //TODO Finish method
 
+            FocusInputText();
         }
 
-        private void OneButton_Click(object sender, EventArgs e)
+        private void ChangeSign()
         {
+            //TODO Finish method
 
+            FocusInputText();
         }
 
-        private void TwoButton_Click(object sender, EventArgs e)
+        #region Text manipulating methods
+        private void InputSymbolButton_Click(object sender, EventArgs e)
         {
+            Button button = sender as Button;
 
+            if (button == null)
+                return;
+
+            string s = (sender as Button).Text;
+            InsertTextValue(s);
+
+            FocusInputText();
         }
 
-        private void ThreeButton_Click(object sender, EventArgs e)
+        private void CEButton_Click(object sender, EventArgs e)
         {
-
+            this.UserInputText.Clear();
+            FocusInputText();
         }
 
-        private void FourButton_Click(object sender, EventArgs e)
+        private void CButton_Click(object sender, EventArgs e)
         {
-
+            //TODO This is not correct behaviour, edit this
+            CEButton_Click(sender, e);
         }
 
-        private void FiveButton_Click(object sender, EventArgs e)
+        private void DelButton_Click(object sender, EventArgs e)
         {
-
+            DeleteTextValue();
+            FocusInputText();
         }
 
-        private void SixButton_Click(object sender, EventArgs e)
+        private void FocusInputText()
         {
-
+            this.UserInputText.Focus();
         }
 
-        private void SevenButton_Click(object sender, EventArgs e)
+        private void InsertTextValue(string value)
         {
+            var selectionStart = this.UserInputText.SelectionStart;
 
+            this.UserInputText.Text = this.UserInputText.Text.Insert(this.UserInputText.SelectionStart, value);
+
+            this.UserInputText.SelectionStart = selectionStart + value.Length;
+
+            this.UserInputText.SelectionLength = 0;
         }
 
-        private void EightButton_Click(object sender, EventArgs e)
+        private void DeleteTextValue()
         {
+            if (this.UserInputText.Text.Length < this.UserInputText.SelectionStart + 1)
+                return;
 
+            var selectionStart = this.UserInputText.SelectionStart;
+                        
+            this.UserInputText.Text = this.UserInputText.Text.Remove(this.UserInputText.SelectionStart, 1);
+
+            this.UserInputText.SelectionStart = selectionStart;
+
+            this.UserInputText.SelectionLength = 0;
         }
-
-        private void NineButton_Click(object sender, EventArgs e)
-        {
-
-        }
+        
         #endregion
     }
 }
