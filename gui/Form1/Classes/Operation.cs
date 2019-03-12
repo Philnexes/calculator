@@ -8,17 +8,12 @@ namespace gui
 {
     public class Operation
     {
-        #region Public properties
         public string LeftSide { get; set; }
 
         public string RightSide { get; set; }
 
         public OperationType OperationType { get; set; }
-
-        public Operation InnerOperation { get; set; }
-
-        #endregion
-
+       
         public Operation()
         {
             this.LeftSide = string.Empty;
