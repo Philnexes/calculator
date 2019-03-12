@@ -34,7 +34,6 @@
             this.EqualsButton = new System.Windows.Forms.Button();
             this.PointButton = new System.Windows.Forms.Button();
             this.ZeroButton = new System.Windows.Forms.Button();
-            this.ChangeSignButton = new System.Windows.Forms.Button();
             this.PlusButton = new System.Windows.Forms.Button();
             this.ThreeButton = new System.Windows.Forms.Button();
             this.TwoButton = new System.Windows.Forms.Button();
@@ -50,7 +49,6 @@
             this.DivideButton = new System.Windows.Forms.Button();
             this.DelButton = new System.Windows.Forms.Button();
             this.CEButton = new System.Windows.Forms.Button();
-            this.CButton = new System.Windows.Forms.Button();
             this.ButtonsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,7 +86,6 @@
             this.ButtonsPanel.Controls.Add(this.EqualsButton, 3, 4);
             this.ButtonsPanel.Controls.Add(this.PointButton, 2, 4);
             this.ButtonsPanel.Controls.Add(this.ZeroButton, 1, 4);
-            this.ButtonsPanel.Controls.Add(this.ChangeSignButton, 0, 4);
             this.ButtonsPanel.Controls.Add(this.PlusButton, 3, 3);
             this.ButtonsPanel.Controls.Add(this.ThreeButton, 2, 3);
             this.ButtonsPanel.Controls.Add(this.TwoButton, 1, 3);
@@ -104,7 +101,6 @@
             this.ButtonsPanel.Controls.Add(this.DivideButton, 3, 0);
             this.ButtonsPanel.Controls.Add(this.DelButton, 2, 0);
             this.ButtonsPanel.Controls.Add(this.CEButton, 0, 0);
-            this.ButtonsPanel.Controls.Add(this.CButton, 1, 0);
             this.ButtonsPanel.Location = new System.Drawing.Point(15, 68);
             this.ButtonsPanel.Name = "ButtonsPanel";
             this.ButtonsPanel.RowCount = 5;
@@ -136,7 +132,7 @@
             this.PointButton.TabIndex = 18;
             this.PointButton.Text = ".";
             this.PointButton.UseVisualStyleBackColor = true;
-            this.PointButton.Click += new System.EventHandler(InputSymbolButton_Click);
+            this.PointButton.Click += new System.EventHandler(this.InputSymbolButton_Click);
             // 
             // ZeroButton
             // 
@@ -147,18 +143,7 @@
             this.ZeroButton.TabIndex = 17;
             this.ZeroButton.Text = "0";
             this.ZeroButton.UseVisualStyleBackColor = true;
-            this.ZeroButton.Click += new System.EventHandler(InputSymbolButton_Click);
-            // 
-            // ChangeSignButton
-            // 
-            this.ChangeSignButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChangeSignButton.Location = new System.Drawing.Point(3, 223);
-            this.ChangeSignButton.Name = "ChangeSignButton";
-            this.ChangeSignButton.Size = new System.Drawing.Size(49, 50);
-            this.ChangeSignButton.TabIndex = 16;
-            this.ChangeSignButton.Text = "±";
-            this.ChangeSignButton.UseVisualStyleBackColor = true;
-            this.ChangeSignButton.Click += new System.EventHandler(this.ChangeSignButton_Click);
+            this.ZeroButton.Click += new System.EventHandler(this.InputSymbolButton_Click);
             // 
             // PlusButton
             // 
@@ -169,7 +154,7 @@
             this.PlusButton.TabIndex = 15;
             this.PlusButton.Text = "+";
             this.PlusButton.UseVisualStyleBackColor = true;
-            this.PlusButton.Click += new System.EventHandler(InputSymbolButton_Click);
+            this.PlusButton.Click += new System.EventHandler(this.InputSymbolButton_Click);
             // 
             // ThreeButton
             // 
@@ -213,7 +198,7 @@
             this.MinusButton.TabIndex = 11;
             this.MinusButton.Text = "-";
             this.MinusButton.UseVisualStyleBackColor = true;
-            this.MinusButton.Click += new System.EventHandler(InputSymbolButton_Click);
+            this.MinusButton.Click += new System.EventHandler(this.InputSymbolButton_Click);
             // 
             // SixButton
             // 
@@ -255,9 +240,9 @@
             this.MultiplyButton.Name = "MultiplyButton";
             this.MultiplyButton.Size = new System.Drawing.Size(51, 49);
             this.MultiplyButton.TabIndex = 7;
-            this.MultiplyButton.Text = "X";
+            this.MultiplyButton.Text = "*";
             this.MultiplyButton.UseVisualStyleBackColor = true;
-            this.MultiplyButton.Click += new System.EventHandler(InputSymbolButton_Click);
+            this.MultiplyButton.Click += new System.EventHandler(this.InputSymbolButton_Click);
             // 
             // NineButton
             // 
@@ -301,7 +286,7 @@
             this.DivideButton.TabIndex = 3;
             this.DivideButton.Text = "%";
             this.DivideButton.UseVisualStyleBackColor = true;
-            this.DivideButton.Click += new System.EventHandler(InputSymbolButton_Click);
+            this.DivideButton.Click += new System.EventHandler(this.InputSymbolButton_Click);
             // 
             // DelButton
             // 
@@ -325,17 +310,6 @@
             this.CEButton.Text = "CE";
             this.CEButton.UseVisualStyleBackColor = true;
             this.CEButton.Click += new System.EventHandler(this.CEButton_Click);
-            // 
-            // CButton
-            // 
-            this.CButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CButton.Location = new System.Drawing.Point(58, 3);
-            this.CButton.Name = "CButton";
-            this.CButton.Size = new System.Drawing.Size(49, 49);
-            this.CButton.TabIndex = 1;
-            this.CButton.Text = "C";
-            this.CButton.UseVisualStyleBackColor = true;
-            this.CButton.Click += new System.EventHandler(this.CButton_Click);
             // 
             // Form1
             // 
@@ -362,11 +336,9 @@
         private System.Windows.Forms.Label CalculationResultText;
         private System.Windows.Forms.TableLayoutPanel ButtonsPanel;
         private System.Windows.Forms.Button CEButton;
-        private System.Windows.Forms.Button CButton;
         private System.Windows.Forms.Button EqualsButton;
         private System.Windows.Forms.Button PointButton;
         private System.Windows.Forms.Button ZeroButton;
-        private System.Windows.Forms.Button ChangeSignButton;
         private System.Windows.Forms.Button PlusButton;
         private System.Windows.Forms.Button ThreeButton;
         private System.Windows.Forms.Button TwoButton;
